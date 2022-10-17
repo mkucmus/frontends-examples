@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import { useUser } from "@shopware-pwa/composables-next";
-import { reactive } from "vue";
-const { logout, login, errors, isLoggedIn, user } = useUser();
+import { ClientApiError, ShopwareError } from "@shopware-pwa/types";
+import { reactive, ref } from "vue";
+const { logout, login, isLoggedIn, user } = useUser();
 const loginCredentials = reactive({
   username: "",
   password: "",
 });
-const invokeLogin = () => login(loginCredentials);
+const errors = ref<ShopwareError[]>();
+const invokeLogin = async () => {
+  try {
+    await login(loginCredentials);
+  } catch (e) {
+    errors.value = (e as ClientApiError).messages;
+  }
+};
 </script>
 <template>
   <div>
@@ -55,8 +63,8 @@ const invokeLogin = () => login(loginCredentials);
         sign in
       </button>
       <div class="notification">
-        <div class="errors" v-if="errors.login.length > 0">
-          {{ errors.login[0].detail }}
+        <div class="errors" v-if="errors && errors?.length > 0">
+          {{ errors[0]?.detail }}
         </div>
       </div>
     </div>

@@ -48,21 +48,18 @@ const paypalMethod = computed(() => {
 });
 
 const renderPaypalButtons = async () => {
-  await loadScript({
+  const paypal = await loadScript({
     "client-id":
       "AUAcLFoadrmy9JiW2cHgriy1mTy0MCqQOP_1SSeQEUArz_zPeF1VcNY2CCxcFBQpf_N4g1k5wFVNJ1Bk",
     currency: "EUR",
     locale: "en_US",
   });
-  if (
-    typeof window === "undefined" ||
-    typeof window?.paypal?.Buttons === "undefined"
-  ) {
+  if (!paypal || !paypal.Buttons) {
     return;
   }
 
-  window.paypal
-    ?.Buttons({
+  paypal
+    .Buttons({
       style: {
         label: "buynow",
       },

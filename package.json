@@ -9,15 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@paypal/paypal-js": "^5.1.2",
     "@shopware-pwa/composables": "^1.5.3",
-    "@shopware-pwa/composables-next": "^0.1.12",
+    "@shopware-pwa/composables-next": "^0.3.0",
+    "@shopware-pwa/helpers-next": "^0.1.21",
     "@shopware-pwa/shopware-6-client": "^1.5.3",
     "js-cookie": "^3.0.1",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
-    "@shopware-pwa/types": "^0.1.12",
+    "@shopware-pwa/types": "^0.1.20",
     "@types/js-cookie": "^3.0.2",
     "@vitejs/plugin-vue": "^3.0.3",
     "typescript": "^4.6.4",

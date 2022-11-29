@@ -15,7 +15,7 @@ const router = createRouter({
   ],
 });
 app.use(ShopwareFrontends, {
-  shopwareEndpoint: "https://demo-frontends.swstage.store",
+  shopwareEndpoint: "https://demo-frontends.shopware.store",
   shopwareAccessToken: "SWSCBHFSNTVMAWNZDNFKSHLAYW",
   apiDefaults: {},
 });

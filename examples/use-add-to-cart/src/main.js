@@ -8,7 +8,7 @@ import App from "./App.vue";
 const cookieContextToken = Cookies.get("sw-context-token");
 const cookieLanguageId = Cookies.get("sw-language-id");
 
-const contextToken = ref(cookieContextToken);
+const contextToken = ref(cookieContextToken || " ");
 const languageId = ref(cookieLanguageId);
 
 const app = createApp(App);

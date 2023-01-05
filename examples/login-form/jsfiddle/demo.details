@@ -1,0 +1,10 @@
+---
+ name: Shopware Frontends Example
+ description: Display a login form
+ normalize_css: no
+ dtd: html 5
+ wrap: d
+ panel_html: 0
+ panel_js: 0
+ panel_css: 0
+...
